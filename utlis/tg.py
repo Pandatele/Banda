@@ -74,7 +74,7 @@ def Ckuser(message):
   response = requests.get('https://anashtick.ml/Banda.php?id={}'.format(userID)).json()
   if response["result"]:
     return True
-  elif response["Banda"] == False:
+  elif response["Ch_Member"] == False:
     kb = InlineKeyboardMarkup([[InlineKeyboardButton("اضغط للاشتراك ⏺", url="t.me/zx_xx")] ])
     Bot("sendMessage",{"chat_id":chatID,"text":response["Banda"],"reply_to_message_id":message.message_id,"parse_mode":"html","disable_web_page_preview":True,"reply_markup":kb})
     return False
