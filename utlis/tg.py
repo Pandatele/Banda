@@ -72,9 +72,9 @@ def Ckuser(message):
   userID = message.from_user.id
   chatID = message.chat.id
   response = requests.get('https://anashtick.ml/Mohamed/Join.php?id={}'.format(userID)).json()
-  if response["ok"]["Ch_Member"]["planther"]:
+  if response.ok.Ch_Member.planther:
     return false
-  elif response["ok"]["Ch_Member"]["planther"] == true:
-    kb = InlineKeyboardMarkup([[InlineKeyboardButton("اضغط للاشتراك ⏺", url="t.me/LANGPHP")] ])
+  elif response.ok.Ch_Member.planther == true:
+    kb = InlineKeyboardMarkup([[InlineKeyboardButton("اضغط للاشتراك ⏺", url="t.me/langphp")] ])
     Bot("sendMessage",{"chat_id":chatID,"text":response["result"],"reply_to_message_id":message.message_id,"parse_mode":"html","disable_web_page_preview":True,"reply_markup":kb})
     return False
