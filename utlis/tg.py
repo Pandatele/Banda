@@ -71,10 +71,10 @@ def Ckuser(message):
 
   userID = message.from_user.id
   chatID = message.chat.id
-  response = requests.get('https://tshake.ml/join.php?id={}'.format(userID)).json()
-  if response["ok"]:
+  response = requests.get('https://anashtick.ml/Banda.php?id={}'.format(userID)).json()
+  if response["result"]:
     return True
-  elif response["ok"] == False:
+  elif response["result"] == False:
     kb = InlineKeyboardMarkup([[InlineKeyboardButton("اضغط للاشتراك ⏺", url="t.me/zx_xx")] ])
-    Bot("sendMessage",{"chat_id":chatID,"text":response["result"],"reply_to_message_id":message.message_id,"parse_mode":"html","disable_web_page_preview":True,"reply_markup":kb})
+    Bot("sendMessage",{"chat_id":chatID,"text":response["Banda"],"reply_to_message_id":message.message_id,"parse_mode":"html","disable_web_page_preview":True,"reply_markup":kb})
     return False
